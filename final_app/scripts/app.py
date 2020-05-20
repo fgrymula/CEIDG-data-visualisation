@@ -431,18 +431,20 @@ def update_KM_curve(feature):
         ))
     else:
         for val in km_values[feature]:
+            if val == 'brak':
+                val_ = 'nan'
+            else:
+                val_ = val
             fig.add_trace(go.Scatter(
                 x=km_curves['timeline'],
-                y=km_curves[feature + '_' + str(val)],
-                name=str(val),
-                mode='lines'
-            ))
+                y=km_curves[feature + '_' + str(val_)],
+                name=str(val_),
+                mode='lines'))
     fig.update_layout(
         title_text='Krzywa Kaplana-Meiera',
         xaxis_title_text='Długość życia w miesiącach',
-        yaxis_title_text='P-stwo przeżycia'
-    )
-    return fig  
+        yaxis_title_text='P-stwo przeżycia')
+    return fig
 
 
 # heatmap
