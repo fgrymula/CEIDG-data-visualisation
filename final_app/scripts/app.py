@@ -9,17 +9,11 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import json
 import os
-os.chdir(r'C:\Users\Franciszek.Grymula\Documents\_Szkoła\CEIDG-data-visualisation\final_app\scripts')
+#os.chdir(r'C:\Users\Franciszek.Grymula\Documents\_Szkoła\CEIDG-data-visualisation\final_app\scripts')
 
 
 ## preparation
 df = pd.read_csv('../data/ceidg_data_surviv_preprocessed.zip', compression='zip')
-
-'''
-df['MainAddressVoivodeshipFromTERCVerbose'] = df['MainAddressVoivodeshipFromTERCVerbose'].fillna('brak')
-df['PKDMainSection'] = df['PKDMainSection'].fillna('brak')
-df['MainAddressCommuneTypeFromTERCVerbose'] = df['MainAddressCommuneTypeFromTERCVerbose'].fillna('brak')
-'''
 
 df.fillna('brak', inplace=True)
 
@@ -545,5 +539,5 @@ def login(n_clicks, map_type, sex, phone, www, email, has_licences, start_quarte
 
 
 ## run server
-app.run_server(debug=True, port=9000)
-#app.run_server(port=9000)
+#app.run_server(debug=True, port=9000)
+app.run_server(port=9000)
